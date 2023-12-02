@@ -9,6 +9,11 @@ A Set of RESTful APIs for a meal service allowing system owners to manage ingred
 - Recipe
 - Box (Order)
 
+## Assumptions
+- __Each `Ingredient` can have only one `Supplier`__: In real life, an `Ingredient` can have many suppliers with different qualities and quantities. But for the sake of this project I choose to assume only one `Supplier` per `Ingredient`.
+
+- __`amount` can be `decimal` only for `kg` and `g`__: The `amount` field can be decimal in cases of `g` and `kg`, but not for `pieces`. So for example  it can have `0.1g` or `2.5kg` but not `1.5pieces`. Maybe in real life `pieces` are ceiled to the nearest integer for the order. For this project I assume `pieces` would only have whole values without fractions.
+
 ## DB Diragram
 ![db diagram](db-diagram.png)
 
