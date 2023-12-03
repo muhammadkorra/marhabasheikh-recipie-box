@@ -14,11 +14,12 @@ class IngredientController extends Controller
     public function index(Request $request){
         $filter = FilterService::makeFilter($request, ['name', 'id'], true);
 
-        $resp = Ingredient::whereHas('supplier', function($query) use ($filter){
+        $ingredients = Ingredient::whereHas('supplier', function($query) use ($filter){
+            // if no filter is set this is an empty array which does not affect the indexing
             $query->where($filter);
         })->with('supplier')->paginate();
 
-        return new IngredientCollection($resp);
+        return new IngredientCollection($ingredients);
     }
 
     public function store(StoreIngredientRequest $request) {
