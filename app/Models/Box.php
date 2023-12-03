@@ -11,6 +11,6 @@ class Box extends Model
     use HasFactory;
 
     public function recipes(): BelongsToMany {
-        return $this->belongsToMany(Recipe::class);
+        return $this->belongsToMany(Recipe::class)->withTimestamps();
     }
 }

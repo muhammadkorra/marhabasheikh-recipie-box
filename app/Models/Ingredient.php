@@ -11,7 +11,6 @@ class Ingredient extends Model
 {
     use HasFactory;
 
-    protected $hidden = ['supplier_id'];
     protected $fillable = ['name', 'measure', 'supplier_id'];
 
     public function supplier(): BelongsTo {
@@ -19,6 +18,6 @@ class Ingredient extends Model
     }
 
     public function recipes(): BelongsToMany {
-        return $this->belongsToMany(Recipe::class);
+        return $this->belongsToMany(Recipe::class)->withTimestamps();
     }
 }
