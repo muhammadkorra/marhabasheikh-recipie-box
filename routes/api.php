@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::group(['prefix' => 'v1'], function (){
+Route::group(['prefix' => 'v1', 'middleware' => 'force.json'], function (){
     Route::apiResource('ingredients', IngredientController::class)->only(['index', 'store']);
     Route::apiResource('recipes', RecipeController::class)->only(['index', 'store']);
     Route::apiResource('boxes', BoxController::class)->only(['index', 'store']);
