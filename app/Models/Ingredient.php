@@ -11,6 +11,9 @@ class Ingredient extends Model
 {
     use HasFactory;
 
+    protected $hidden = ['supplier_id'];
+    protected $fillable = ['name', 'measure', 'supplier_id'];
+
     public function supplier(): BelongsTo {
         return $this->belongsTo(Supplier::class);
     }
