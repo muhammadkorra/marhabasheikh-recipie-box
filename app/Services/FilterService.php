@@ -31,7 +31,7 @@ class FilterService {
         }
 
         foreach($params as $param) {
-            if(!array_key_exists($param, $queryParams)){
+            if(!isset($queryParams[$param])){
                 continue;
             }
 
