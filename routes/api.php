@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\BoxController;
 use App\Http\Controllers\IngredientController;
 use App\Http\Controllers\RecipeController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,4 +23,5 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix' => 'v1'], function (){
     Route::apiResource('ingredients', IngredientController::class);
     Route::apiResource('recipes', RecipeController::class);
+    Route::apiResource('boxes', BoxController::class);
 });

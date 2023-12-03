@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreRecipeRequest;
 use App\Http\Resources\RecipeCollection;
 use App\Models\Recipe;
-use Illuminate\Http\Request;
 
 class RecipeController extends Controller
 {
@@ -14,7 +13,10 @@ class RecipeController extends Controller
     }
 
     public function store(StoreRecipeRequest $request) {
-        $recipe = Recipe::create($request->all());
+        $recipe = Recipe::create([
+            'name' => $request->name,
+            'description' => $request->description
+        ]);
 
         foreach($request->ingredients as $ingredient) {
             $recipe->ingredients()->attach($ingredient['id'], ['amount' => $ingredient['amount']]);

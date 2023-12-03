@@ -10,6 +10,8 @@ class Box extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['delivery_date'];
+
     public function recipes(): BelongsToMany {
         return $this->belongsToMany(Recipe::class)->withTimestamps();
     }
