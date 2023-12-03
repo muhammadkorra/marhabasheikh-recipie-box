@@ -9,7 +9,7 @@ use App\Models\Recipe;
 class RecipeController extends Controller
 {
     public function index() {
-        return new RecipeCollection(Recipe::with('ingredients')->get());
+        return new RecipeCollection(Recipe::with('ingredients')->paginate());
     }
 
     public function store(StoreRecipeRequest $request) {

@@ -6,11 +6,19 @@ use App\Http\Requests\StoreIngredientRequest;
 use App\Http\Resources\IngredientCollection;
 use App\Http\Resources\IngredientResource;
 use App\Models\Ingredient;
+use App\Services\FilterService;
+use Illuminate\Http\Request;
 
 class IngredientController extends Controller
 {
-    public function index(){
-        return new IngredientCollection(Ingredient::with('supplier')->get());
+    public function index(Request $request){
+        $filter = FilterService::makeFilter($request, ['name', 'id'], true);
+
+        $resp = Ingredient::whereHas('supplier', function($query) use ($filter){
+            $query->where($filter);
+        })->with('supplier')->paginate();
+
+        return new IngredientCollection($resp);
     }
 
     public function store(StoreIngredientRequest $request) {

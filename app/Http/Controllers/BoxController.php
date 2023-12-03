@@ -6,11 +6,16 @@ use App\Http\Requests\StoreBoxRequest;
 use App\Http\Resources\BoxResource;
 use App\Http\Resources\BoxCollection;
 use App\Models\Box;
+use Illuminate\Http\Request;
+use App\Services\FilterService;
 
 class BoxController extends Controller
 {
-    public function index(){
-        return new BoxCollection(Box::with('recipes')->get());
+    public function index(Request $request){
+        // filters by delivery_date if it is set correctly in query
+        $filter = FilterService::makeFilter($request, ['delivery_date']);
+
+        return new BoxCollection(Box::where($filter)->with('recipes')->paginate());
     }
 
     public function store(StoreBoxRequest $request){
