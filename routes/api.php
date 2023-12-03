@@ -3,6 +3,7 @@
 use App\Http\Controllers\BoxController;
 use App\Http\Controllers\IngredientController;
 use App\Http\Controllers\RecipeController;
+use App\Http\Controllers\EstimateController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,7 +22,8 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::group(['prefix' => 'v1'], function (){
-    Route::apiResource('ingredients', IngredientController::class);
-    Route::apiResource('recipes', RecipeController::class);
-    Route::apiResource('boxes', BoxController::class);
+    Route::apiResource('ingredients', IngredientController::class)->only(['index', 'store']);
+    Route::apiResource('recipes', RecipeController::class)->only(['index', 'store']);
+    Route::apiResource('boxes', BoxController::class)->only(['index', 'store']);
+    Route::apiResource('estimates', EstimateController::class)->only(['index']);
 });
