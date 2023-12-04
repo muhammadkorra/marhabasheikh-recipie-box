@@ -1,0 +1,1251 @@
+{
+	"info": {
+		"_postman_id": "7a013ea5-877a-4e00-a4c4-13f904055b67",
+		"name": "Mahraba Sheikh",
+		"description": "Collection of APIs for a Meal service.\n\nMake sure to check the `Examples` Section under each request to see more options about the parameters and the available filtering.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18390386"
+	},
+	"item": [
+		{
+			"name": "List Ingredients",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{HOST}}:{{PORT}}/api/v1/ingredients",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"v1",
+						"ingredients"
+					]
+				},
+				"description": "Returns a paginated response of all the available ingredients along with the supplier of that ingredient.\n\nCan user the following filters:\n\n`supplier.name[like]` and `supplier.id[eq]`"
+			},
+			"response": [
+				{
+					"name": "List Available Ingredients",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/ingredients",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"ingredients"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.13"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 04 Dec 2023 13:39:18 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Potato\",\n            \"measure\": \"kg\",\n            \"supplier\": {\n                \"id\": 1,\n                \"name\": \"West, Rippin and Williamson\",\n                \"email\": \"cecil.hoppe@hahn.biz\",\n                \"phone\": \"1-515-275-1058\"\n            }\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Chicken\",\n            \"measure\": \"pieces\",\n            \"supplier\": {\n                \"id\": 2,\n                \"name\": \"Hoeger, Lueilwitz and Johnson\",\n                \"email\": \"edison69@muller.com\",\n                \"phone\": \"+1-567-248-5282\"\n            }\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Banana\",\n            \"measure\": \"g\",\n            \"supplier\": {\n                \"id\": 3,\n                \"name\": \"Mertz, Mohr and Kuphal\",\n                \"email\": \"mmurazik@herman.org\",\n                \"phone\": \"+1 (520) 909-2134\"\n            }\n        },\n        {\n            \"id\": 4,\n            \"name\": \"Broccoli\",\n            \"measure\": \"g\",\n            \"supplier\": {\n                \"id\": 4,\n                \"name\": \"O'Keefe PLC\",\n                \"email\": \"ondricka.soledad@herzog.com\",\n                \"phone\": \"+1 (347) 867-5388\"\n            }\n        },\n        {\n            \"id\": 5,\n            \"name\": \"Tomato\",\n            \"measure\": \"kg\",\n            \"supplier\": {\n                \"id\": 5,\n                \"name\": \"Buckridge, Pollich and Tremblay\",\n                \"email\": \"webster.gislason@okuneva.org\",\n                \"phone\": \"(678) 548-7108\"\n            }\n        },\n        {\n            \"id\": 6,\n            \"name\": \"Prawns\",\n            \"measure\": \"g\",\n            \"supplier\": {\n                \"id\": 6,\n                \"name\": \"Bernier Inc\",\n                \"email\": \"kuhlman.pete@ferry.biz\",\n                \"phone\": \"(616) 913-5068\"\n            }\n        },\n        {\n            \"id\": 7,\n            \"name\": \"Rice\",\n            \"measure\": \"g\",\n            \"supplier\": {\n                \"id\": 7,\n                \"name\": \"Mills and Sons\",\n                \"email\": \"barry82@senger.com\",\n                \"phone\": \"+1-973-469-8944\"\n            }\n        },\n        {\n            \"id\": 8,\n            \"name\": \"Beef\",\n            \"measure\": \"pieces\",\n            \"supplier\": {\n                \"id\": 8,\n                \"name\": \"Huel, Will and Connelly\",\n                \"email\": \"wterry@hoeger.com\",\n                \"phone\": \"218-518-1128\"\n            }\n        }\n    ],\n    \"links\": {\n        \"first\": \"http://localhost:8000/api/v1/ingredients?page=1\",\n        \"last\": \"http://localhost:8000/api/v1/ingredients?page=1\",\n        \"prev\": null,\n        \"next\": null\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"last_page\": 1,\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://localhost:8000/api/v1/ingredients?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": null,\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"path\": \"http://localhost:8000/api/v1/ingredients\",\n        \"per_page\": 15,\n        \"to\": 8,\n        \"total\": 8\n    }\n}"
+				},
+				{
+					"name": "List Ingredients with Supplier ID filter",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/ingredients?supplier.id[eq]=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"ingredients"
+							],
+							"query": [
+								{
+									"key": "supplier.id[eq]",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.13"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 04 Dec 2023 13:44:14 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Potato\",\n            \"measure\": \"kg\",\n            \"supplier\": {\n                \"id\": 1,\n                \"name\": \"West, Rippin and Williamson\",\n                \"email\": \"cecil.hoppe@hahn.biz\",\n                \"phone\": \"1-515-275-1058\"\n            }\n        }\n    ],\n    \"links\": {\n        \"first\": \"http://localhost:8000/api/v1/ingredients?page=1\",\n        \"last\": \"http://localhost:8000/api/v1/ingredients?page=1\",\n        \"prev\": null,\n        \"next\": null\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"last_page\": 1,\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://localhost:8000/api/v1/ingredients?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": null,\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"path\": \"http://localhost:8000/api/v1/ingredients\",\n        \"per_page\": 15,\n        \"to\": 1,\n        \"total\": 1\n    }\n}"
+				},
+				{
+					"name": "List Ingredients with Supplier Name Filter",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/ingredients?supplier.name[like]=%Kee%",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"ingredients"
+							],
+							"query": [
+								{
+									"key": "supplier.name[like]",
+									"value": "%Kee%"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.13"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 04 Dec 2023 13:45:28 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"id\": 4,\n            \"name\": \"Broccoli\",\n            \"measure\": \"g\",\n            \"supplier\": {\n                \"id\": 4,\n                \"name\": \"O'Keefe PLC\",\n                \"email\": \"ondricka.soledad@herzog.com\",\n                \"phone\": \"+1 (347) 867-5388\"\n            }\n        }\n    ],\n    \"links\": {\n        \"first\": \"http://localhost:8000/api/v1/ingredients?page=1\",\n        \"last\": \"http://localhost:8000/api/v1/ingredients?page=1\",\n        \"prev\": null,\n        \"next\": null\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"last_page\": 1,\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://localhost:8000/api/v1/ingredients?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": null,\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"path\": \"http://localhost:8000/api/v1/ingredients\",\n        \"per_page\": 15,\n        \"to\": 1,\n        \"total\": 1\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Create Ingredient",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Fish\",\r\n    \"measure\": \"kg\",\r\n    \"supplier\": 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}:{{PORT}}/api/v1/ingredients",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"v1",
+						"ingredients"
+					]
+				},
+				"description": "Creates a new ingredient\n\n`name`: is the name of the ingredient\n\n`measure`: is either `kg` , `g`, or `pieces`\n\n`supplier` is the supplier ID"
+			},
+			"response": [
+				{
+					"name": "Create Ingredient",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Fish\",\r\n    \"measure\": \"kg\",\r\n    \"supplier\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/ingredients",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"ingredients"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.13"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 04 Dec 2023 13:48:28 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 9,\n        \"name\": \"Fish\",\n        \"measure\": \"kg\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "List Recipes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}:{{PORT}}/api/v1/recipes",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"v1",
+						"recipes"
+					]
+				},
+				"description": "Returns a paginated list of all the recipes along with their ingredients"
+			},
+			"response": [
+				{
+					"name": "List Recipes with Ingredients",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/recipes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"recipes"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.13"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 04 Dec 2023 13:52:51 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"id\": 5,\n            \"name\": \"Grilled Chicken Meal\",\n            \"description\": \"Grilled chicken with side of Rice and Broccoli, the perfectly balanced and healthy meal\",\n            \"ingredients\": [\n                {\n                    \"id\": 2,\n                    \"name\": \"Chicken\",\n                    \"measure\": \"pieces\",\n                    \"amount\": \"5.00\"\n                },\n                {\n                    \"id\": 4,\n                    \"name\": \"Broccoli\",\n                    \"measure\": \"g\",\n                    \"amount\": \"25.00\"\n                },\n                {\n                    \"id\": 7,\n                    \"name\": \"Rice\",\n                    \"measure\": \"g\",\n                    \"amount\": \"250.00\"\n                }\n            ]\n        },\n        {\n            \"id\": 6,\n            \"name\": \"Angus Steak with Rice and Mash\",\n            \"description\": \"Premium Angus steak with side of Rice, Broccoli, and Mashed potatoes. How can this get more juicy?\",\n            \"ingredients\": [\n                {\n                    \"id\": 8,\n                    \"name\": \"Beef\",\n                    \"measure\": \"pieces\",\n                    \"amount\": \"2.00\"\n                },\n                {\n                    \"id\": 4,\n                    \"name\": \"Broccoli\",\n                    \"measure\": \"g\",\n                    \"amount\": \"25.00\"\n                },\n                {\n                    \"id\": 7,\n                    \"name\": \"Rice\",\n                    \"measure\": \"g\",\n                    \"amount\": \"250.00\"\n                },\n                {\n                    \"id\": 1,\n                    \"name\": \"Potato\",\n                    \"measure\": \"kg\",\n                    \"amount\": \"0.25\"\n                }\n            ]\n        },\n        {\n            \"id\": 7,\n            \"name\": \"Seafood Lovers\",\n            \"description\": \"A Breeze of the sea in your box, Grilled fish with oil and lemon, with a side of rice and grilled prawns\",\n            \"ingredients\": [\n                {\n                    \"id\": 6,\n                    \"name\": \"Prawns\",\n                    \"measure\": \"g\",\n                    \"amount\": \"100.00\"\n                },\n                {\n                    \"id\": 7,\n                    \"name\": \"Rice\",\n                    \"measure\": \"g\",\n                    \"amount\": \"250.00\"\n                },\n                {\n                    \"id\": 9,\n                    \"name\": \"Fish\",\n                    \"measure\": \"kg\",\n                    \"amount\": \"0.70\"\n                }\n            ]\n        }\n    ],\n    \"links\": {\n        \"first\": \"http://localhost:8000/api/v1/recipes?page=1\",\n        \"last\": \"http://localhost:8000/api/v1/recipes?page=1\",\n        \"prev\": null,\n        \"next\": null\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"last_page\": 1,\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://localhost:8000/api/v1/recipes?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": null,\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"path\": \"http://localhost:8000/api/v1/recipes\",\n        \"per_page\": 15,\n        \"to\": 3,\n        \"total\": 3\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Create Recipe",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Seafood Lovers\",\r\n    \"description\": \"A Breeze of the sea in your box, Grilled fish with oil and lemon, with a side of rice and grilled prawns\",\r\n    \"ingredients\": [\r\n        {\r\n            \"id\": 6,\r\n            \"amount\": 100\r\n        },\r\n        {\r\n            \"id\": 7,\r\n            \"amount\": 250\r\n        },\r\n        {\r\n            \"id\": 9,\r\n            \"amount\": 0.7\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}:{{PORT}}/api/v1/recipes",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"v1",
+						"recipes"
+					]
+				},
+				"description": "Creates a new Recipe\n\n`name`: is the name of the recipe\n\n`description`: a short description of the recipe and what to expect\n\n`ingredients` : is an array of the ingredients required for this recipe, the object in the ingredient has two fields:\n\n1. `id`: which is the ID of the ingredient\n2. `amount`: is the amount required of this ingredient for this specific recipe. Note that only `kg` and `g` measure types on the ingredient can have fractions, `pieces` will need a whole number."
+			},
+			"response": [
+				{
+					"name": "Create Recipe",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Seafood Lovers\",\r\n    \"description\": \"A Breeze of the sea in your box, Grilled fish with oil and lemon, with a side of rice and grilled prawns\",\r\n    \"ingredients\": [\r\n        {\r\n            \"id\": 6,\r\n            \"amount\": 100\r\n        },\r\n        {\r\n            \"id\": 7,\r\n            \"amount\": 250\r\n        },\r\n        {\r\n            \"id\": 9,\r\n            \"amount\": 0.7\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/recipes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"recipes"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.13"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 04 Dec 2023 13:52:25 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"created\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Create a Box",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"delivery_date\": \"2023-12-05\",\r\n    \"recipe_ids\": [5,6,7]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}:{{PORT}}/api/v1/boxes",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"v1",
+						"boxes"
+					]
+				},
+				"description": "Create a new Box (order) with the preferred recipes.\n\n`delivery_date`: is the date for the box to be delivered. This should not be within 48 hours of the order.\n\n`recipe_ids`: is an array that contains the IDs of the recipes to be included in the order."
+			},
+			"response": [
+				{
+					"name": "Fails if the delivery date is less than 48 hours",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"delivery_date\": \"2023-12-05\",\r\n    \"recipe_ids\": [5,6,7]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/boxes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"boxes"
+							]
+						}
+					},
+					"status": "Unprocessable Content",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.13"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 04 Dec 2023 13:54:02 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"The delivery date field must be a date after or equal to 2023-12-06.\",\n    \"errors\": {\n        \"delivery_date\": [\n            \"The delivery date field must be a date after or equal to 2023-12-06.\"\n        ]\n    }\n}"
+				},
+				{
+					"name": "Fails if the recipe id is not available",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"delivery_date\": \"2023-12-05\",\r\n    \"recipe_ids\": [5,6,8]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/v1/boxes",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"v1",
+								"boxes"
+							]
+						}
+					},
+					"status": "Unprocessable Content",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.13"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 04 Dec 2023 13:54:51 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"The delivery date field must be a date after or equal to 2023-12-06. (and 1 more error)\",\n    \"errors\": {\n        \"delivery_date\": [\n            \"The delivery date field must be a date after or equal to 2023-12-06.\"\n        ],\n        \"recipe_ids.2\": [\n            \"The selected recipe_ids.2 is invalid.\"\n        ]\n    }\n}"
+				},
+				{
+					"name": "Creates a new box and returns the delivery date along with the box components",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"delivery_date\": \"2023-12-12\",\r\n    \"recipe_ids\": [5,6,7]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/boxes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"boxes"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.13"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 04 Dec 2023 13:55:19 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 3,\n        \"delivery_date\": \"2023-12-12\",\n        \"created_at\": \"2023-12-04T13:55:19.000000Z\",\n        \"updated_at\": \"2023-12-04T13:55:19.000000Z\",\n        \"recipes\": [\n            {\n                \"id\": 5,\n                \"name\": \"Grilled Chicken Meal\",\n                \"description\": \"Grilled chicken with side of Rice and Broccoli, the perfectly balanced and healthy meal\"\n            },\n            {\n                \"id\": 6,\n                \"name\": \"Angus Steak with Rice and Mash\",\n                \"description\": \"Premium Angus steak with side of Rice, Broccoli, and Mashed potatoes. How can this get more juicy?\"\n            },\n            {\n                \"id\": 7,\n                \"name\": \"Seafood Lovers\",\n                \"description\": \"A Breeze of the sea in your box, Grilled fish with oil and lemon, with a side of rice and grilled prawns\"\n            }\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "List Boxes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}:{{PORT}}/api/v1/boxes?delivery_date[gt]=2023-12-10",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"v1",
+						"boxes"
+					],
+					"query": [
+						{
+							"key": "delivery_date[gt]",
+							"value": "2023-12-10"
+						}
+					]
+				},
+				"description": "Lists all the available Boxes (orders)\n\ncan be filtered by `delivery_date`\n\nthe following operators can be used: `gt, lt, gte, lte, eq`"
+			},
+			"response": [
+				{
+					"name": "List Boxes along with their Recipes",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/boxes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"boxes"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.13"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 04 Dec 2023 13:57:02 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"delivery_date\": \"2023-12-05\",\n            \"created_at\": \"2023-12-03T11:39:42.000000Z\",\n            \"updated_at\": \"2023-12-03T11:39:42.000000Z\",\n            \"recipes\": [\n                {\n                    \"id\": 5,\n                    \"name\": \"Grilled Chicken Meal\",\n                    \"description\": \"Grilled chicken with side of Rice and Broccoli, the perfectly balanced and healthy meal\"\n                }\n            ]\n        },\n        {\n            \"id\": 2,\n            \"delivery_date\": \"2023-12-06\",\n            \"created_at\": \"2023-12-03T11:48:44.000000Z\",\n            \"updated_at\": \"2023-12-03T11:48:44.000000Z\",\n            \"recipes\": [\n                {\n                    \"id\": 5,\n                    \"name\": \"Grilled Chicken Meal\",\n                    \"description\": \"Grilled chicken with side of Rice and Broccoli, the perfectly balanced and healthy meal\"\n                },\n                {\n                    \"id\": 6,\n                    \"name\": \"Angus Steak with Rice and Mash\",\n                    \"description\": \"Premium Angus steak with side of Rice, Broccoli, and Mashed potatoes. How can this get more juicy?\"\n                }\n            ]\n        },\n        {\n            \"id\": 3,\n            \"delivery_date\": \"2023-12-12\",\n            \"created_at\": \"2023-12-04T13:55:19.000000Z\",\n            \"updated_at\": \"2023-12-04T13:55:19.000000Z\",\n            \"recipes\": [\n                {\n                    \"id\": 5,\n                    \"name\": \"Grilled Chicken Meal\",\n                    \"description\": \"Grilled chicken with side of Rice and Broccoli, the perfectly balanced and healthy meal\"\n                },\n                {\n                    \"id\": 6,\n                    \"name\": \"Angus Steak with Rice and Mash\",\n                    \"description\": \"Premium Angus steak with side of Rice, Broccoli, and Mashed potatoes. How can this get more juicy?\"\n                },\n                {\n                    \"id\": 7,\n                    \"name\": \"Seafood Lovers\",\n                    \"description\": \"A Breeze of the sea in your box, Grilled fish with oil and lemon, with a side of rice and grilled prawns\"\n                }\n            ]\n        }\n    ],\n    \"links\": {\n        \"first\": \"http://localhost:8000/api/v1/boxes?page=1\",\n        \"last\": \"http://localhost:8000/api/v1/boxes?page=1\",\n        \"prev\": null,\n        \"next\": null\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"last_page\": 1,\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://localhost:8000/api/v1/boxes?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": null,\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"path\": \"http://localhost:8000/api/v1/boxes\",\n        \"per_page\": 15,\n        \"to\": 3,\n        \"total\": 3\n    }\n}"
+				},
+				{
+					"name": "Filter boxes by delivery date \"greater than\"",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/v1/boxes?delivery_date[gt]=2023-12-10",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"v1",
+								"boxes"
+							],
+							"query": [
+								{
+									"key": "delivery_date[gt]",
+									"value": "2023-12-10"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.13"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 04 Dec 2023 13:57:41 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"id\": 3,\n            \"delivery_date\": \"2023-12-12\",\n            \"created_at\": \"2023-12-04T13:55:19.000000Z\",\n            \"updated_at\": \"2023-12-04T13:55:19.000000Z\",\n            \"recipes\": [\n                {\n                    \"id\": 5,\n                    \"name\": \"Grilled Chicken Meal\",\n                    \"description\": \"Grilled chicken with side of Rice and Broccoli, the perfectly balanced and healthy meal\"\n                },\n                {\n                    \"id\": 6,\n                    \"name\": \"Angus Steak with Rice and Mash\",\n                    \"description\": \"Premium Angus steak with side of Rice, Broccoli, and Mashed potatoes. How can this get more juicy?\"\n                },\n                {\n                    \"id\": 7,\n                    \"name\": \"Seafood Lovers\",\n                    \"description\": \"A Breeze of the sea in your box, Grilled fish with oil and lemon, with a side of rice and grilled prawns\"\n                }\n            ]\n        }\n    ],\n    \"links\": {\n        \"first\": \"http://localhost:8000/api/v1/boxes?page=1\",\n        \"last\": \"http://localhost:8000/api/v1/boxes?page=1\",\n        \"prev\": null,\n        \"next\": null\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"last_page\": 1,\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://localhost:8000/api/v1/boxes?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": null,\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"path\": \"http://localhost:8000/api/v1/boxes\",\n        \"per_page\": 15,\n        \"to\": 1,\n        \"total\": 1\n    }\n}"
+				},
+				{
+					"name": "Filter boxes by delivery date \"less than\"",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/v1/boxes?delivery_date[lt]=2023-12-10",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"v1",
+								"boxes"
+							],
+							"query": [
+								{
+									"key": "delivery_date[lt]",
+									"value": "2023-12-10"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.13"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 04 Dec 2023 13:58:09 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"delivery_date\": \"2023-12-05\",\n            \"created_at\": \"2023-12-03T11:39:42.000000Z\",\n            \"updated_at\": \"2023-12-03T11:39:42.000000Z\",\n            \"recipes\": [\n                {\n                    \"id\": 5,\n                    \"name\": \"Grilled Chicken Meal\",\n                    \"description\": \"Grilled chicken with side of Rice and Broccoli, the perfectly balanced and healthy meal\"\n                }\n            ]\n        },\n        {\n            \"id\": 2,\n            \"delivery_date\": \"2023-12-06\",\n            \"created_at\": \"2023-12-03T11:48:44.000000Z\",\n            \"updated_at\": \"2023-12-03T11:48:44.000000Z\",\n            \"recipes\": [\n                {\n                    \"id\": 5,\n                    \"name\": \"Grilled Chicken Meal\",\n                    \"description\": \"Grilled chicken with side of Rice and Broccoli, the perfectly balanced and healthy meal\"\n                },\n                {\n                    \"id\": 6,\n                    \"name\": \"Angus Steak with Rice and Mash\",\n                    \"description\": \"Premium Angus steak with side of Rice, Broccoli, and Mashed potatoes. How can this get more juicy?\"\n                }\n            ]\n        }\n    ],\n    \"links\": {\n        \"first\": \"http://localhost:8000/api/v1/boxes?page=1\",\n        \"last\": \"http://localhost:8000/api/v1/boxes?page=1\",\n        \"prev\": null,\n        \"next\": null\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"last_page\": 1,\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://localhost:8000/api/v1/boxes?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": null,\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"path\": \"http://localhost:8000/api/v1/boxes\",\n        \"per_page\": 15,\n        \"to\": 2,\n        \"total\": 2\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Estimates",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}:{{PORT}}/api/v1/estimates?order_date=2023-12-10",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"v1",
+						"estimates"
+					],
+					"query": [
+						{
+							"key": "order_date",
+							"value": "2023-12-10"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Without order date (gets upto 7 days from today)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/estimates",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"estimates"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.13"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 04 Dec 2023 14:11:59 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Potato\",\n        \"measure\": \"kg\",\n        \"total_amount\": \"0.25\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Chicken\",\n        \"measure\": \"pieces\",\n        \"total_amount\": \"10.00\"\n    },\n    {\n        \"id\": 4,\n        \"name\": \"Broccoli\",\n        \"measure\": \"g\",\n        \"total_amount\": \"75.00\"\n    },\n    {\n        \"id\": 7,\n        \"name\": \"Rice\",\n        \"measure\": \"g\",\n        \"total_amount\": \"750.00\"\n    },\n    {\n        \"id\": 8,\n        \"name\": \"Beef\",\n        \"measure\": \"pieces\",\n        \"total_amount\": \"2.00\"\n    }\n]"
+				},
+				{
+					"name": "With order dates gets up to 7 days from the order date",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/estimates?order_date=2023-12-10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"estimates"
+							],
+							"query": [
+								{
+									"key": "order_date",
+									"value": "2023-12-10"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.13"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 04 Dec 2023 14:12:52 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Potato\",\n        \"measure\": \"kg\",\n        \"total_amount\": \"0.25\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Chicken\",\n        \"measure\": \"pieces\",\n        \"total_amount\": \"5.00\"\n    },\n    {\n        \"id\": 4,\n        \"name\": \"Broccoli\",\n        \"measure\": \"g\",\n        \"total_amount\": \"50.00\"\n    },\n    {\n        \"id\": 6,\n        \"name\": \"Prawns\",\n        \"measure\": \"g\",\n        \"total_amount\": \"100.00\"\n    },\n    {\n        \"id\": 7,\n        \"name\": \"Rice\",\n        \"measure\": \"g\",\n        \"total_amount\": \"750.00\"\n    },\n    {\n        \"id\": 8,\n        \"name\": \"Beef\",\n        \"measure\": \"pieces\",\n        \"total_amount\": \"2.00\"\n    },\n    {\n        \"id\": 9,\n        \"name\": \"Fish\",\n        \"measure\": \"kg\",\n        \"total_amount\": \"0.70\"\n    }\n]"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

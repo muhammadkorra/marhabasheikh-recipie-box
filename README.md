@@ -106,4 +106,14 @@ $ ./start.sh
 |List Recipes|Returns a paginated list of all the available recipes along with the required ingredients and their amounts|GET|`/recipes`|N/A|
 |Create Recipe|Create a new Recipe|POST|`/recipes`|N/A|
 |List Boxes|Returns a pagined list of all the available Boxes(orders) in the system|GET|`/boxes`|`delivery_date[eq]`, `delivery_date[gt]`, `delivery_date[lt]`, `delivery_date[lte]`, `delivery_date[gte]`|
+|Create Box|Creates an new Box(order)|POST|`/boxes`|N/A|
 |Estimates|Returns a list of ingredients with the `total_amount` required to cover a period up to __7 Days__ from the `order_date`|GET|`/estimates`|N/A|
+
+## Postman Docs
+After deployment, you can test these request by visiting [this URL](https://documenter.getpostman.com/view/18390386/2s9YeLXUCn) to access the postman collection.
+> REMINDER: DO NOT FORGET TO CHECK THE EXAMPLES DROP DOWN LIST FOR ALL THE OPTIONS
+
+![postman docs](postman-docs.png)
+
+You can also import the Postman collection to your own Postman client, click on `Run in Postman` option, or import the collection
+`postman-collection.json` file in the repo, go to __Postman__ and click `import` on the top left corner, and choose the `postman-collection.json` file. 
