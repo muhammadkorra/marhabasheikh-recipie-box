@@ -20,7 +20,9 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
-            IngredientSeeder::class
+            IngredientSeeder::class,
+            RecipeSeeder::class,
+            BoxSeeder::class
         ]);
     }
 }
