@@ -1,0 +1,64 @@
+version: '3.9'
+
+services:
+  marhaba:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: marhabasheikh:latest
+    container_name: marhabasheikh-api
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      APP_NAME: marhabasheikh
+      APP_ENV: production
+      APP_DEBUG: false
+      DB_CONNECTION: mysql
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_DATABASE: marhabasheikh
+      DB_USERNAME: admin
+      DB_PASSWORD: password
+    depends_on:
+      mysql:
+        condition: service_healthy
+  
+  # MySQL DB
+  mysql:
+    image: mysql:5.7
+    container_name: marhabasheikh-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: marhabasheikh
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: root-password
+    # healthcheck is to avoid artisan cancelling the migration if db is not ready to accept connections
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p$$MYSQL_ROOT_PASSWORD"]
+      interval: 5s
+      timeout: 20s
+      retries: 10
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  # phpmyadmin service    
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    restart: unless-stopped
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=mysql
+      - PMA_USER=admin
+      - PMA_PASSWORD=password
+    ports:
+      - "8000:80"
+    depends_on:
+      - mysql
+
+volumes:
+  mysql_data:
