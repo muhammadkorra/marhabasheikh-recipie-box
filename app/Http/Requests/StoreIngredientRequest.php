@@ -23,7 +23,7 @@ class StoreIngredientRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255', 'unique:ingredients'],
             'measure' => ['required', Rule::in(['kg', 'g', 'pieces'])],
             'supplier' => ['required', 'exists:suppliers,id']
         ];
@@ -34,5 +34,11 @@ class StoreIngredientRequest extends FormRequest
         $this->merge([
             'supplier_id' => $this->supplier
         ]);
+    }
+
+    public function messages() {
+        return [
+            'name.unique' => 'The ingredient already exists.'
+        ];
     }
 }
