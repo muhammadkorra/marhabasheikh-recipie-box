@@ -14,7 +14,7 @@ class IngredientTest extends TestCase
      * A basic feature test example.
      */
 
-    public function test_index_all_ingredients(): void
+    public function test_should_index_all_ingredients(): void
     {
         $response = $this->get('/api/v1/ingredients');
 
@@ -37,7 +37,7 @@ class IngredientTest extends TestCase
             ]);
     }
 
-    public function test_create_new_ingredient(): void {
+    public function test_should_create_a_new_ingredient(): void {
         $payload = [
             'name' => $this->faker->unique()->randomElement(['Garlic', 'Mushrooms', 'Truffle', 'Corn', 'Onion', 'Ginger']),
             'measure' => 'pieces',
@@ -50,7 +50,7 @@ class IngredientTest extends TestCase
         $this->assertDatabaseHas('ingredients', ['name' => $payload['name'], 'measure' => 'pieces', 'supplier_id' => 2]);
     }
 
-    public function test_fails_to_create_if_ingredient_already_exists(): void {
+    public function test_should_fail_to_create_if_ingredient_already_exists(): void {
         $ingredient = Ingredient::latest()->first();
 
         $payload = [
@@ -63,7 +63,7 @@ class IngredientTest extends TestCase
         $response->assertStatus(422)->assertJson(['message' => 'The ingredient already exists.']);
     }
 
-    public function test_fails_to_create_if_invalid_measure(): void {
+    public function test_should_fail_to_create_if_invalid_measure(): void {
         $payload = [
             'name' => 'Truffle Oil',
             'measure' => 'ounces', //invalid measure
@@ -74,7 +74,7 @@ class IngredientTest extends TestCase
         $response->assertStatus(422)->assertJson(['message' => 'The selected measure is invalid.']);
     }
 
-    public function test_fails_to_create_if_invalid_supplier_id(): void {
+    public function test_should_fail_to_create_if_invalid_supplier_id(): void {
         $supplier = Supplier::orderBy('id', 'desc')->first();
 
         $payload = [

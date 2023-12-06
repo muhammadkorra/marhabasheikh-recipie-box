@@ -41,6 +41,12 @@ Same goes for this table. If a `Recipe` is removed from the system, it should be
 |MySQL DB|3306|localhost|
 |phpMyAdmin Server|8000|[localhost](http://localhost:8000/)|
 
+# Run The Tests
+```bash
+$ php artisan test
+```
+![tests](tests.png)
+
 # Running The Project
 ## Prerequisites
 - [Docker](https://docs.docker.com/engine/install/)

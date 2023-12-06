@@ -12,7 +12,7 @@ class RecipeTest extends TestCase
     /**
      * A basic feature test example.
      */
-    public function test_index_all_recipes(): void
+    public function test_should_index_all_recipes(): void
     {
         $response = $this->get('/api/v1/recipes');
 
@@ -30,7 +30,7 @@ class RecipeTest extends TestCase
         ]);
     }
 
-    public function test_create_new_recipe(): void {
+    public function test_should_create_new_recipe(): void {
         $payload = [
             'name' => $this->faker->unique()->randomElement(['Quinoa Roasted Tomatoes', 'Egg Benedict', 'Shakshouka', 'Lamb chops']),
             'description' => 'The perfectly balanced meal for every day',
@@ -43,7 +43,7 @@ class RecipeTest extends TestCase
         $this->assertDatabaseHas('recipes', ['name' => $payload['name'], 'description' => $payload['description']]);
     }
 
-    public function test_fails_to_create_if_ingredient_measure_is_invalid(): void {
+    public function test_should_fail_to_create_if_ingredient_measure_is_invalid(): void {
         $ingredient = Ingredient::where('measure', '=', 'pieces')->first();
 
         $payload = [
@@ -59,7 +59,7 @@ class RecipeTest extends TestCase
         $response->assertStatus(422)->json(['message' => 'The amount cannot contain fractions when the ingredient measure is "pieces"']);
     }
 
-    public function test_fails_to_create_if_ingredient_id_is_invalid(): void {
+    public function test_should_fail_to_create_if_ingredient_id_is_invalid(): void {
         $ingredient = Ingredient::latest()->first();
 
         $payload = [
